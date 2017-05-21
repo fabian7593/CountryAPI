@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountryAPI", "CountryAPI\CountryAPI.csproj", "{573EE347-8611-4C1C-8B1A-CA8BB145E916}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D80A699A-AD63-4D1F-9D61-3570DE2766B9} = {D80A699A-AD63-4D1F-9D61-3570DE2766B9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConn", "DataConn\DataConn.csproj", "{D80A699A-AD63-4D1F-9D61-3570DE2766B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{573EE347-8611-4C1C-8B1A-CA8BB145E916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573EE347-8611-4C1C-8B1A-CA8BB145E916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573EE347-8611-4C1C-8B1A-CA8BB145E916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573EE347-8611-4C1C-8B1A-CA8BB145E916}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D80A699A-AD63-4D1F-9D61-3570DE2766B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80A699A-AD63-4D1F-9D61-3570DE2766B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80A699A-AD63-4D1F-9D61-3570DE2766B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80A699A-AD63-4D1F-9D61-3570DE2766B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

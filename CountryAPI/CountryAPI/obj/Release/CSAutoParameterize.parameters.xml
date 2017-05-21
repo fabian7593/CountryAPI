@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="db47a34fa5f3d14e7291c1a77201706c4eConnectionString-Web.config Connection String" description="db47a34fa5f3d14e7291c1a77201706c4eConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=47a34fa5-f3d1-4e72-91c1-a77201706c4e.sqlserver.sequelizer.com;Initial Catalog=db47a34fa5f3d14e7291c1a77201706c4e;Persist Security Info=True;User ID=adgwqbyzyqeilyeh;Password=zg8d6Nn8MbwoKMsKbyXyjjp6qRbQbj7BVzUJYoqv3opLPSsuuGsbhSipYcUnME7C" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Fabian\\Desktop\\WebApi\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db47a34fa5f3d14e7291c1a77201706c4eConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,20 @@
+Escape json
+http://bernhardhaeussner.de/odd/json-escape/
+
+json 1
+https://restcountries.eu/rest/v2/all
+
+json 2
+https://restcountries.herokuapp.com/api/v1
+
+restcountries
+https://restcountries.eu/
+
+server DB
+https://appharbor.com/
+
+host server
+gearhost.com
+
+images server
+https://backendless.com/

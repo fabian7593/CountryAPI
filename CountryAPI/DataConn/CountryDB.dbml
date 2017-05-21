@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db47a34fa5f3d14e7291c1a77201706c4e" Class="countryDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=47a34fa5-f3d1-4e72-91c1-a77201706c4e.sqlserver.sequelizer.com;Initial Catalog=db47a34fa5f3d14e7291c1a77201706c4e;Persist Security Info=True;User ID=adgwqbyzyqeilyeh" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="db47a34fa5f3d14e7291c1a77201706c4eConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Country" Member="Countries">
+    <Type Name="Country">
+      <Column Name="name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="alpha2Code" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="alpha3Code" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nativeName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="region" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="subRegion" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="latitude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="longitude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="area" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="numericCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nativeLanguage" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="currencyCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="currencyName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="currencySymbol" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="flag" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GET_COUNTRIES" Method="GET_COUNTRIES">
+    <Parameter Name="pName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="pAlpha2Code" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="pAlpha3Code" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="pNativeName" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="pRegion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="pSubRegion" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="pAreaFrom" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="pAreaTo" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="pNumericCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pNativeLanguage" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="pCurrencyCode" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="pCurrencyName" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="pPage" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pLimit" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GET_COUNTRIESResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="alpha2Code" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="alpha3Code" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nativeName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="region" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="subRegion" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="latitude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="longitude" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="area" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="numericCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="nativeLanguage" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="currencyCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="currencyName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="currencySymbol" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="flag" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
