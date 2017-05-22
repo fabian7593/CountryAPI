@@ -40,6 +40,7 @@ This service return the next data of all the countries in the world:
 * flag
 
 <br>
+
 #### Why use CountryAPI?
 * Not have to create an account in any web page or application.
 * Gets a really simple json object.
