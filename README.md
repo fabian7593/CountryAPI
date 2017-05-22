@@ -67,6 +67,11 @@ For example:
 ![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/Postman.jpg)
 
 #### Executing CountryAPI request with parameters
+You can use any parameter that you need.
+
+** Parameter list: **
+
+
 
 <br><br>
 ## Donate
