@@ -1,5 +1,6 @@
 # CountryAPI
 A Rest Api of country information that you need.
+EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 
 ## Contents
 ### How to Use
@@ -10,13 +11,14 @@ A Rest Api of country information that you need.
 - [Donate](#donate)
 
 ### Footer Docs
+- [Servers](#servers) 
 - [Current Version](#current-version) 
 - [Apache License](#license) 
 
 
 <br>
 
-### How To Use
+## How To Use
 
 #### What is CountryAPI?
 Country API is a simple web service, made with REST API architecture, that return a simple Json Object with the verb "GET", withouth Oauth, Oauth2, or another authetication.
@@ -53,16 +55,28 @@ This service return the next data of all the countries in the world:
 * The service is always up  (24/7).
 * Feel free to use or contribute to the improvement of this.
 
+
+<br>
+
+#### Executing the CountryAPI request
+Only need to open browser and paste the url http://countryapi.gear.host/v1/Country/getCountries.
+Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data.
+For example:
+
+
 <br><br>
-### Donate
+## Donate
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L25MKCRPR7TWY)
 
 <br><br><br>
 
-### Current Version
+## Servers
+
+
+## Current Version
 * **v1** `21/May/2017`
 
-### License
+## License
 Copyright 2016 Fabian Rosales
 
 Licensed under the Apache License, Version 2.0 (the "License");
