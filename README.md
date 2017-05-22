@@ -7,6 +7,8 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 ### How to Use
 - [What is CountryAPI](#what-is-countryapi)
 - [Why use CountryAPI](#why-use-countryapi)
+- [Executing the CountryAPI request](#executing-the-countryapi-request)
+- [Request Parameters](#request-parameters)
 
 ### Buy me a Coffee (Donate)
 - [Donate](#donate)
@@ -66,11 +68,14 @@ Or use [Postman](https://www.getpostman.com/) or similar software with the verb 
 For example:
 ![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/Postman.jpg)
 
-#### Executing CountryAPI request with parameters
+#### Request Parameters
 You can use any parameter that you need.
 
-** Parameter list: **
+**Parameter list:**
 
+| Name | Type | Required | SQLConsult Type |
+| ---------- | ----------- | ------- | ------- |
+| `pName` | String | False | `LIKE "% %"` | 
 
 
 <br><br>
