@@ -1,9 +1,6 @@
 # CountryAPI
 A Rest Api of country information that you need.
 
-## Current version
-* **v1** `21/May/2017`
-
 ## Contents
 ### How to Use
 - [What is CountryAPI](#what-is-countryapi)
@@ -13,7 +10,9 @@ A Rest Api of country information that you need.
 - [Donate](#donate)
 
 ### Footer Docs
+- [Current Version](#current-version) 
 - [Apache License](#license) 
+
 
 <br>
 
@@ -60,7 +59,10 @@ This service return the next data of all the countries in the world:
 
 <br><br><br>
 
-# License
+### Current Version
+* **v1** `21/May/2017`
+
+### License
 Copyright 2016 Fabian Rosales
 
 Licensed under the Apache License, Version 2.0 (the "License");
