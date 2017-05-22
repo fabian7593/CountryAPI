@@ -1,5 +1,6 @@
 # CountryAPI
 A Rest Api of country information that you need.
+
 EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 
 ## Contents
@@ -60,9 +61,12 @@ This service return the next data of all the countries in the world:
 
 #### Executing the CountryAPI request
 Only need to open browser and paste the url http://countryapi.gear.host/v1/Country/getCountries.
+
 Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data.
 For example:
-[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/Postman.jpg)]
+![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/Postman.jpg)
+
+#### Executing CountryAPI request with parameters
 
 <br><br>
 ## Donate
