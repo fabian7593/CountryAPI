@@ -62,13 +62,13 @@ This service return the next data of all the countries in the world:
 Only need to open browser and paste the url http://countryapi.gear.host/v1/Country/getCountries.
 Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data.
 For example:
-
+[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/Postman.jpg)]
 
 <br><br>
 ## Donate
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L25MKCRPR7TWY)
 
-<br><br><br>
+<br>
 
 ## Servers
 
