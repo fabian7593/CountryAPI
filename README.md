@@ -3,6 +3,8 @@ A Rest Api of country information that you need.
 
 EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
 ## Contents
 ### How to Use
 - [What is CountryAPI](#what-is-countryapi)
