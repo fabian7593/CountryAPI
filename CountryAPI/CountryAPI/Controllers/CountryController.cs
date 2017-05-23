@@ -56,8 +56,9 @@ namespace CountryAPI.Controllers
 
                 msgResponse.isSucessfull = 1;
                 msgResponse.response = countryList;
+                msgResponse.totalCount = countryList.Count;
 
-                if(countryList.Count <= 0)
+                if (countryList.Count <= 0)
                 {
                     msgResponse.userMessage = NOT_HAVE_DATA_TO_SHOW;
                 }
