@@ -15,7 +15,7 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
       - [Region and sub region list](#region-and-sub-region-list)
    - [Data of the country with Alpha code 2 or 3](#data-of-the-country-with-alpha-code-2-or-3)
    - [Data of the countries with english like native language](#data-of-the-countries-with-english-like-native-language)
-   - [Data of the countries with Currency code USD (United States Dollar)](#data-of-the-countries-with-currency-code-usd-(united-states-dollar))
+   - [Data of the countries with Currency code USD (United States Dollar)](#data-of-the-countries-with-currency-code-usd-united-states-dollar)
    - [Data of the countries with an Area (km2) more than 8000 and less than 12000](#data-of-the-countries-with-an-area-(km2)-more-than-8000-and-less-than-12000)
    - [Data of the countries with limit and pagination](#data-of-the-countries-with-limit-and-pagination)
 
