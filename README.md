@@ -26,6 +26,7 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 - [Servers](#servers) 
 - [Current Version](#current-version) 
 - [Credits](#credits) 
+- [References](#references) 
 - [Apache License](#license) 
 
 
@@ -184,6 +185,14 @@ http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
 <br>
 
 ## Servers
+#### PAAS: Host server .Net Web API 2.0
+https://www.gearhost.com/
+
+#### PAAS: Sql server 2008 free
+https://appharbor.com/
+
+#### BAAS: Free files storage
+https://backendless.com/
 
 
 ## Current Version
@@ -193,11 +202,17 @@ http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
 **Author**
 [Fabián Rosales - Frosquivel Developer](https://github.com/fabian7593)
 
-
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/github-logo.png)](https://github.com/fabian7593)
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/facebook.png)](https://www.facebook.com/fabian.rosales.509)
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/linkedin.png)](https://www.linkedin.com/in/fabian-rosales-esquivel-698893106/)
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/youtube.png)](https://www.youtube.com/channel/UCJnvvHb_vwMwbnZWplkHIfw)
+
+<br>
+## References
+
+https://restcountries.eu
+
+https://github.com/aredo/restcountries
 
 
 ## License
