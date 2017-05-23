@@ -8,10 +8,10 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 - [What is CountryAPI](#what-is-countryapi)
 - [Why use CountryAPI](#why-use-countryapi)
 - [Executing the CountryAPI request](#executing-the-countryapi-request)
-- [Request Parameters](#request-parameters)
+- [Request Parameters List](#request-parameters)
 - [Request Examples (with parameters)](#request-examples)
    - [You need the information of one country specifically](#you-need-the-information-of-one-country-specifically)
-   - [You need the information of countries with region and subRegion specifically](#you-need-the-information-of-countries-with-region-and-subRegion-specifically)
+   - [You need the information of countries with region and subRegion specifically](#you-need-the-information-of-countries-with-region-and-subregion-specifically)
       - [Region and sub region list](#region-and-sub-region-list)
 
 ### Buy me a Coffee (Donate)
@@ -31,31 +31,28 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 Country API is a simple web service, made with REST API architecture, that return a simple Json Object with the verb "GET", withouth Oauth, Oauth2, or another authetication.
 
 This service return the next data of all the countries in the world:
-` {
-  "isSucessfull": 1,
-  "userMessage": null,
-  "technicalMessage": null,
-  "totalCount": 1,
-  "response": [
-    {
-      "name": "Costa Rica",
-      "alpha2Code": "CR",
-      "alpha3Code": "CRI",
-      "nativeName": "Costa Rica",
-      "region": "Americas",
-      "subRegion": "Central America",
-      "latitude": "10",
-      "longitude": "-84",
-      "area": 51100,
-      "numericCode": 188,
-      "nativeLanguage": "spa",
-      "currencyCode": "CRC",
-      "currencyName": "Costa Rican colón",
-      "currencySymbol": "₡",
-      "flag": "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-       E93D9D780A00/files/CountryFlags/cri.svg"
-    }
-  ]
-} `
+
+* **isSucessfull:** Is sucessfull is 1 = True, refers that all works fine, else 0. 
+* **userMessage:** This message is for the users, and only shown with isSucessfull is 0.
+* **technicalMessage:** This message is more technical, and only shown with isSucessfull is 0, please send me a stack trace.
+* **totalCount:** The numbers of country objects that gets in response.
+* **response:** Array of country objects.
+   * name
+   * alpha2Code
+   * alpha3Code
+   * nativeName
+   * region
+   * subRegion
+   * latitude
+   * longitude
+   * area
+   * numericCode
+   * nativeLanguage
+   * currencyCode
+   * currencyName
+   * currencySymbol
+   * flag
+
 
 <br>
 
@@ -154,6 +151,27 @@ http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=
    * Polynesia
 * Polar
 
+<br>
+
+##### You need the information of the country with Alpha code 2 or 3
+
+http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR
+
+##### You need the information of the country with Alpha code 2 or 3
+
+http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR
+
+##### You need the information of the all the countries with english like native language
+
+http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng
+
+##### You need the information of the all the countries with Currency code USD (United States Dollar)
+
+http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD
+
+##### You need the information of the all the countries with an Area (km2) more than 8000 and less than 12000 
+
+http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000
 
 
 <br><br>
