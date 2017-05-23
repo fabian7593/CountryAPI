@@ -193,6 +193,7 @@ http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
 **Author**
 [Fabián Rosales](https://github.com/fabian7593)
 
+[![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/github-logo.png)][https://github.com/fabian7593]
 
 ## License
 Copyright 2017 Fabian Rosales
