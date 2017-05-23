@@ -12,7 +12,7 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 - [Request Examples (with parameters)](#request-examples)
    - [You need the information of one country specifically](#you-need-the-information-of-one-country-specifically)
    - [You need the information of countries with region and subRegion specifically](#you-need-the-information-of-countries-with-region-and-subRegion-specifically)
-      -[Region and sub region list](#region-and-sub-region-list)
+      - [Region and sub region list](#region-and-sub-region-list)
 
 ### Buy me a Coffee (Donate)
 - [Donate](#donate)
@@ -31,21 +31,31 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 Country API is a simple web service, made with REST API architecture, that return a simple Json Object with the verb "GET", withouth Oauth, Oauth2, or another authetication.
 
 This service return the next data of all the countries in the world:
-* name
-* alpha2Code
-* alpha3Code
-* nativeName
-* region
-* subRegion
-* latitude
-* longitude
-* area
-* numericCode
-* nativeLanguage
-* currencyCode
-* currencyName
-* currencySymbol
-* flag
+` {
+  "isSucessfull": 1,
+  "userMessage": null,
+  "technicalMessage": null,
+  "totalCount": 1,
+  "response": [
+    {
+      "name": "Costa Rica",
+      "alpha2Code": "CR",
+      "alpha3Code": "CRI",
+      "nativeName": "Costa Rica",
+      "region": "Americas",
+      "subRegion": "Central America",
+      "latitude": "10",
+      "longitude": "-84",
+      "area": 51100,
+      "numericCode": 188,
+      "nativeLanguage": "spa",
+      "currencyCode": "CRC",
+      "currencyName": "Costa Rican colón",
+      "currencySymbol": "₡",
+      "flag": "https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-       E93D9D780A00/files/CountryFlags/cri.svg"
+    }
+  ]
+} `
 
 <br>
 
@@ -109,6 +119,7 @@ http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica
 PD: the request is similar with **pNativeName**.
 
 <br>
+
 ##### You need the information of countries with region and subRegion specifically
 
 http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America
