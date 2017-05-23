@@ -82,11 +82,9 @@ This service return the next data of all the countries in the world:
 Simple example.
 Only need to open browser and paste the url http://countryapi.gear.host/v1/Country/getCountries.
 
-Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data.
+Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data and/or edit the json in [Json Editor Online](http://www.jsoneditoronline.org/).
 For example:
 ![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/Postman.jpg)
-
-Or request in web browser and Edit the Json online with: [Json Editor Online](http://www.jsoneditoronline.org/)
 
 #### Request Parameters
 You can use any parameter that you need.
