@@ -10,9 +10,14 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 - [Executing the CountryAPI request](#executing-the-countryapi-request)
 - [Request Parameters List](#request-parameters)
 - [Request Examples (with parameters)](#request-examples)
-   - [You need the information of one country specifically](#you-need-the-information-of-one-country-specifically)
-   - [You need the information of countries with region and subRegion specifically](#you-need-the-information-of-countries-with-region-and-subregion-specifically)
+   - [Data of one specific country](#data-of-one-specific-country)
+   - [Data of countries with region and subRegion specifically](#data-of-countries-with-region-and-subregion-specifically)
       - [Region and sub region list](#region-and-sub-region-list)
+   - [Data of the country with Alpha code 2 or 3](#data-of-the-country-with-alpha-code-2-or-3)
+   - [Data of the countries with english like native language](#data-of-the-countries-with-english-like-native-language)
+   - [Data of the countries with Currency code USD (United States Dollar)](#data-of-the-countries-with-currency-code-usd-(united-states-dollar))
+   - [Data of the countries with an Area (km2) more than 8000 and less than 12000](#data-of-the-countries-with-an-area-(km2)-more-than-8000-and-less-than-12000)
+   - [Data of the countries with limit and pagination](#data-of-the-countries-with-limit-and-pagination)
 
 ### Buy me a Coffee (Donate)
 - [Donate](#donate)
@@ -107,7 +112,7 @@ You can use any parameter that you need.
 
 <br><br>
 #### Request Examples
-##### You need the information of one country specifically
+##### Data of one specific country 
 
 http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica
 
@@ -117,7 +122,7 @@ PD: the request is similar with **pNativeName**.
 
 <br>
 
-##### You need the information of countries with region and subRegion specifically
+##### Data of countries with region and subRegion specifically
 
 http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America
 
@@ -153,25 +158,24 @@ http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=
 
 <br>
 
-##### You need the information of the country with Alpha code 2 or 3
-
+##### Data of the country with Alpha code 2 or 3
 http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR
 
-##### You need the information of the country with Alpha code 2 or 3
-
-http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR
-
-##### You need the information of the all the countries with english like native language
-
+##### Data of the countries with english like native language
 http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng
 
-##### You need the information of the all the countries with Currency code USD (United States Dollar)
-
+##### Data of the countries with Currency code USD (United States Dollar)
 http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD
 
-##### You need the information of the all the countries with an Area (km2) more than 8000 and less than 12000 
-
+##### Data of the countries with an Area (km2) more than 8000 and less than 12000 
 http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000
+
+##### Data of the countries with limit and pagination
+http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=1
+http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
+
+
+
 
 
 <br><br>
