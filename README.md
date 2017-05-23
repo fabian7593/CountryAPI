@@ -194,9 +194,12 @@ https://appharbor.com/
 #### BAAS: Free files storage
 https://backendless.com/
 
+<br>
 
 ## Current Version
 * **v1** `21/May/2017`
+
+<br>
 
 ## Credits
 **Author**
@@ -215,6 +218,7 @@ https://restcountries.eu
 
 https://github.com/aredo/restcountries
 
+<br>
 
 ## License
 Copyright 2017 Fabian Rosales
