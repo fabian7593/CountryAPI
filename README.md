@@ -25,6 +25,7 @@ EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
 ### Footer Docs
 - [Servers](#servers) 
 - [Current Version](#current-version) 
+- [Credits](#credits) 
 - [Apache License](#license) 
 
 
@@ -188,8 +189,13 @@ http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
 ## Current Version
 * **v1** `21/May/2017`
 
+## Credits
+**Author**
+[Fabián Rosales](https://github.com/fabian7593)
+
+
 ## License
-Copyright 2016 Fabian Rosales
+Copyright 2017 Fabian Rosales
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
