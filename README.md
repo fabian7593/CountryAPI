@@ -62,6 +62,8 @@ This service return the next data of all the countries in the world:
 <br>
 
 #### Executing the CountryAPI request
+
+Simple example.
 Only need to open browser and paste the url http://countryapi.gear.host/v1/Country/getCountries.
 
 Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data.
@@ -76,6 +78,19 @@ You can use any parameter that you need.
 | Name | Type | Required | SQLConsult Type |
 | ---------- | ----------- | ------- | ------- |
 | `pName` | String | False | `LIKE "% %"` | 
+| `pAlpha2Code` | string | False | `Equals` | 
+| `pAlpha3Code` | string | False | `Equals` | 
+| `pNativeName` | string | False | `LIKE "% %"` | 
+| `pRegion` | string | False | `LIKE "% %"` | 
+| `pSubRegion` | string | False | `LIKE "% %"` | 
+| `pAreaFrom` | long? | False | `BETWEEN pAreaFrom AND pAreaTo` | 
+| `pAreaTo` | long? | False | `BETWEEN pAreaFrom AND pAreaTo` | 
+| `pNumericCode` | long? | False | `Equals` | 
+| `pNativeLanguage` | string | False | `Equals` | 
+| `pCurrencyCode` | string | False | `Equals` | 
+| `pCurrencyName` | string | False | `LIKE "% %"` | 
+| `pPage` | int? | False | `Pagination` | 
+| `pLimit` | int? | False | `Limit of objects response` | 
 
 
 <br><br>
