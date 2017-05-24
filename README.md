@@ -1,4 +1,8 @@
-# CountryAPI
+![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/rsz_countryapi_text.png) 
+   ![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/countryapix-2.png)
+
+
+
 A Rest Api of country information that you need.
 
 EndPoint Request: [http://countryapi.gear.host/v1/Country/getCountries](http://countryapi.gear.host/v1/Country/getCountries)
