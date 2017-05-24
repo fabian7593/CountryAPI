@@ -2,7 +2,8 @@
 A Rest Api of country information that you need.
 
 EndPoint Request: [http://countryapi.gear.host/v1/Country/getCountries](http://countryapi.gear.host/v1/Country/getCountries)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a64cbf5369e14c3d98f8722c4ad3fad7)](https://www.codacy.com/app/fabian7593/CountryAPI?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fabian7593/CountryAPI&amp;utm_campaign=Badge_Grade)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c17666154d7a45af892e2b67a4639448)](https://www.codacy.com/app/fabian7593/CountryAPI?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fabian7593/CountryAPI&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## Contents
