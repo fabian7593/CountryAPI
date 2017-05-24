@@ -1,7 +1,7 @@
 # CountryAPI
 A Rest Api of country information that you need.
 
-EndPoint Request: http://countryapi.gear.host/v1/Country/getCountries
+EndPoint Request: [http://countryapi.gear.host/v1/Country/getCountries](http://countryapi.gear.host/v1/Country/getCountries)
 
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -84,7 +84,7 @@ This service return the next data of all the countries in the world:
 #### Executing the CountryAPI request
 
 Simple example.
-Only need to open browser and paste the url http://countryapi.gear.host/v1/Country/getCountries.
+Only need to open browser and paste the url [http://countryapi.gear.host/v1/Country/getCountries](http://countryapi.gear.host/v1/Country/getCountries).
 
 Or use [Postman](https://www.getpostman.com/) or similar software with the verb GET, and obtain the json data and/or edit the json in [Json Editor Online](http://www.jsoneditoronline.org/).
 For example:
@@ -116,7 +116,7 @@ You can use any parameter that you need.
 #### Request Examples
 ##### Data of one specific country 
 
-http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica
+[http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica](http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica)
 
 ` {"isSucessfull":1,"userMessage":null,"technicalMessage":null,"totalCount":1,"response":[{"name":"Costa Rica","alpha2Code":"CR","alpha3Code":"CRI","nativeName":"Costa Rica","region":"Americas","subRegion":"Central America","latitude":"10","longitude":"-84","area":51100,"numericCode":188,"nativeLanguage":"spa","currencyCode":"CRC","currencyName":"Costa Rican colón","currencySymbol":"₡","flag":"https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/cri.svg"}]} `
 
@@ -126,7 +126,7 @@ PD: the request is similar with **pNativeName**.
 
 ##### Data of countries with region and subRegion specifically
 
-http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America
+[http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America](http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America)
 
 ###### Region and sub region list
 * Africa
@@ -161,20 +161,20 @@ http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=
 <br>
 
 ##### Data of the country with Alpha code 2 or 3
-http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR
+[http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR](http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR)
 
 ##### Data of the countries with english like native language
-http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng
+[http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng](http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng)
 
 ##### Data of the countries with Currency code USD (United States Dollar)
-http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD
+[http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD](http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD)
 
 ##### Data of the countries with an Area (km2) more than 8000 and less than 12000 
-http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000
+[http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000](http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000)
 
 ##### Data of the countries with limit and pagination
-http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=1
-http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
+[http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=1](http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=1)
+[http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2](http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2)
 
 
 
@@ -188,13 +188,13 @@ http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2
 
 ## Servers
 #### PAAS: Host server .Net Web API 2.0
-https://www.gearhost.com/
+[https://www.gearhost.com/](https://www.gearhost.com/)
 
 #### PAAS: Sql server 2008 free
-https://appharbor.com/
+[https://appharbor.com/](https://appharbor.com/)
 
 #### BAAS: Free files storage
-https://backendless.com/
+[https://backendless.com/](https://backendless.com/)
 
 <br>
 
