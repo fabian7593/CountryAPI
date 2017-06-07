@@ -63,6 +63,7 @@ This service return the next data of all the countries in the world:
    * currencyName
    * currencySymbol
    * flag
+   * flagpng
 
 
 <br>
