@@ -22,3 +22,11 @@ C:\Users\Fabian\Desktop\CountryAPI\Scripts db\JSonToSql\JSonToSql\bin\Debug\JSon
 C:\Users\Fabian\Desktop\CountryAPI\Scripts db\JSonToSql\JSonToSql\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Fabian\Desktop\CountryAPI\Scripts db\JSonToSql\JSonToSql\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Fabian\Desktop\CountryAPI\Scripts db\JSonToSql\JSonToSql\obj\Debug\JSonToSql.csprojResolveAssemblyReference.cache
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\bin\Debug\JSonToSql.exe.config
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\obj\Debug\JSonToSql.csprojResolveAssemblyReference.cache
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\bin\Debug\JSonToSql.exe
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\bin\Debug\JSonToSql.pdb
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\obj\Debug\JSonToSql.exe
+C:\Users\Fabian\Desktop\CountryAPI\Files\ConvertJSonToSql\JSonToSql\obj\Debug\JSonToSql.pdb

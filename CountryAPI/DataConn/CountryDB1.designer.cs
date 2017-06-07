@@ -33,7 +33,7 @@ namespace DataConn
     #endregion
 		
 		public countryDBDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["db47a34fa5f3d14e7291c1a77201706c4eConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["db47a34fa5f3d14e7291c1a77201706c4eConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -111,6 +111,8 @@ namespace DataConn
 		private string _currencySymbol;
 		
 		private string _flag;
+		
+		private string _flagpng;
 		
 		public Country()
 		{
@@ -355,6 +357,22 @@ namespace DataConn
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_flagpng", DbType="NVarChar(500)")]
+		public string flagpng
+		{
+			get
+			{
+				return this._flagpng;
+			}
+			set
+			{
+				if ((this._flagpng != value))
+				{
+					this._flagpng = value;
+				}
+			}
+		}
 	}
 	
 	public partial class GET_COUNTRIESResult
@@ -389,6 +407,8 @@ namespace DataConn
 		private string _currencySymbol;
 		
 		private string _flag;
+		
+		private string _flagpng;
 		
 		public GET_COUNTRIESResult()
 		{
@@ -630,6 +650,22 @@ namespace DataConn
 				if ((this._flag != value))
 				{
 					this._flag = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_flagpng", DbType="NVarChar(500)")]
+		public string flagpng
+		{
+			get
+			{
+				return this._flagpng;
+			}
+			set
+			{
+				if ((this._flagpng != value))
+				{
+					this._flagpng = value;
 				}
 			}
 		}

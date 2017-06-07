@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="countryapi" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Fabian\\Desktop\\WebApi\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Fabian\\Desktop\\WebApi\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Fabian\\Desktop\\CountryAPI\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Fabian\\Desktop\\CountryAPI\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="db47a34fa5f3d14e7291c1a77201706c4eConnectionString-Web.config Connection String" description="" value="Data Source=47a34fa5-f3d1-4e72-91c1-a77201706c4e.sqlserver.sequelizer.com;Initial Catalog=db47a34fa5f3d14e7291c1a77201706c4e;Persist Security Info=True;User ID=adgwqbyzyqeilyeh;Password=zg8d6Nn8MbwoKMsKbyXyjjp6qRbQbj7BVzUJYoqv3opLPSsuuGsbhSipYcUnME7C" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Fabian\\Desktop\\WebApi\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db47a34fa5f3d14e7291c1a77201706c4eConnectionString']/@connectionString" />
+  <parameter name="db47a34fa5f3d14e7291c1a77201706c4eConnectionString1-Web.config Connection String" description="" value="Data Source=47a34fa5-f3d1-4e72-91c1-a77201706c4e.sqlserver.sequelizer.com;Initial Catalog=db47a34fa5f3d14e7291c1a77201706c4e;Persist Security Info=True;User ID=adgwqbyzyqeilyeh;Password=zg8d6Nn8MbwoKMsKbyXyjjp6qRbQbj7BVzUJYoqv3opLPSsuuGsbhSipYcUnME7C" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Fabian\\Desktop\\CountryAPI\\CountryAPI\\CountryAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='db47a34fa5f3d14e7291c1a77201706c4eConnectionString1']/@connectionString" />
   </parameter>
 </parameters>

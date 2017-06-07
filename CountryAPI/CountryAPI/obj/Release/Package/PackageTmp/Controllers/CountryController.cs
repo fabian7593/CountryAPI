@@ -51,13 +51,15 @@ namespace CountryAPI.Controllers
                     countryModel.currencyName = countryResult.currencyName;
                     countryModel.currencySymbol = countryResult.currencySymbol;
                     countryModel.flag = countryResult.flag;
+                    countryModel.flagPng = countryResult.flagpng;
                     countryList.Add(countryModel);
                 }
 
                 msgResponse.isSucessfull = 1;
                 msgResponse.response = countryList;
+                msgResponse.totalCount = countryList.Count;
 
-                if(countryList.Count <= 0)
+                if (countryList.Count <= 0)
                 {
                     msgResponse.userMessage = NOT_HAVE_DATA_TO_SHOW;
                 }

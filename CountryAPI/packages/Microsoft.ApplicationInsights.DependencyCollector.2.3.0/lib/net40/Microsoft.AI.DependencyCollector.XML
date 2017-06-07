@@ -1,0 +1,831 @@
+<?xml version="1.0"?>
+<doc xml:lang="en">
+    <assembly>
+        <name>Microsoft.AI.DependencyCollector</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer">
+            <summary>
+            Telemetry Initializer that parses http dependencies into well-known types like Azure Storage.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer.Initialize(Microsoft.ApplicationInsights.Channel.ITelemetry)">
+            <summary>
+            If telemetry item is http dependency - converts it to the well-known type of the dependency.
+            </summary>
+            <param name="telemetry">Telemetry item to convert.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.PretendProfilerIsAttached">
+            <summary>
+            Gets or sets a value indicating whether pretending the profiler is attached or not.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.BeginTracking(Microsoft.ApplicationInsights.TelemetryClient)">
+            <summary>
+            The function that needs to be called before sending a request to the server. Creates and initializes dependency telemetry item.
+            </summary>
+            <param name="telemetryClient">Telemetry client object to initialize the context of the telemetry item.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.EndTracking(Microsoft.ApplicationInsights.TelemetryClient,Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry)">
+            <summary>
+            Function that needs to be invoked after the request call to the sever. Computes the duration of the request and tracks the dependency telemetry
+            item.
+            </summary>
+            <param name="telemetryClient">Telemetry client object to track the telemetry item.</param>
+            <param name="telemetry">Telemetry item to compute the duration and track.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.GetTupleForWebDependencies(System.Net.WebRequest)">
+            <summary>
+            Gets the tuple from either conditional weak table or cache (based on the framework for the input web request).
+            </summary>
+            <param name="webRequest">Target web request.</param>
+            <returns>Tuple of dependency telemetry and a boolean that tells if the tuple is custom created or not.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.AddTupleForWebDependencies(System.Net.WebRequest,Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry,System.Boolean)">
+            <summary>
+            Adds the tuple to either conditional weak table or cache (based on the framework for the input web request).
+            </summary>
+            <param name="webRequest">Target web request.</param>
+            <param name="telemetry">Dependency telemetry item to add to the table for the corresponding web request.</param>
+            <param name="isCustomCreated">Boolean value that tells if the current telemetry item is being added by the customer or not.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.GetTupleForSqlDependencies(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Gets the tuple from either conditional weak table or cache (based on the framework for the input SQL request).
+            </summary>
+            <param name="sqlRequest">Target SQL request.</param>
+            <returns>Tuple of dependency telemetry and a boolean that tells if the tuple is custom created or not.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.AddTupleForSqlDependencies(System.Data.SqlClient.SqlCommand,Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry,System.Boolean)">
+            <summary>
+            Adds the tuple to either conditional weak table or cache (based on the framework for the input SQL request).
+            </summary>
+            <param name="sqlRequest">Target SQL request.</param>
+            <param name="telemetry">Dependency telemetry item to add to the table for the corresponding SQL request.</param>
+            <param name="isCustomCreated">Boolean value that tells if the current telemetry item is being added by the customer or not.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyTargetNameHelper">
+            <summary>
+            Dependency TargetName helper.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyTargetNameHelper.GetDependencyTargetName(System.Uri)">
+            <summary>
+            Returns dependency target name from the given Uri.
+            Port name is included in target for non-standard ports.
+            </summary>
+            <param name="uri">Dependency uri from which target is to be extracted.</param>        
+            <returns>Dependency target name.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing">
+            <summary>
+            Concrete class with all processing logic to generate dependencies from the callbacks received from Profiler instrumentation for SQL connection.   
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing.SqlConnectionCommandText">
+            <summary>
+            Constant command text to return.
+            </summary> 
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,System.String,Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ObjectInstanceBasedOperationHolder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing.GetDependencyName(System.Object)">
+            <summary>
+            Gets SQL connection resource name.
+            </summary>
+            <param name="thisObj">The SQL connection.</param>
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing.GetDependencyTarget(System.Object)">
+            <summary>
+            Gets SQL connection resource target name.
+            </summary>
+            <param name="thisObj">The SQL connection.</param>
+            <returns>The resource target name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlConnectionProcessing.GetCommandName(System.Object)">
+            <summary>
+            Gets SQL connection command text.
+            </summary>
+            <param name="thisObj">The SQL connection.</param>
+            <returns>Returns predefined command text.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlCommandProcessing">
+            <summary>
+            Concrete class with all processing logic to generate dependencies from the callbacks received from Profiler instrumentation for SQL command.    
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlCommandProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,System.String,Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ObjectInstanceBasedOperationHolder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlCommandProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlCommandProcessing.GetDependencyName(System.Object)">
+            <summary>
+            Gets SQL command resource name.
+            </summary>
+            <param name="thisObj">The SQL command.</param>
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlCommandProcessing.GetDependencyTarget(System.Object)">
+            <summary>
+            Gets SQL resource target name.
+            </summary>
+            <param name="thisObj">The SQL command.</param>
+            <returns>The resource target name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlCommandProcessing.GetCommandName(System.Object)">
+            <summary>
+            Gets SQL resource command text.
+            </summary>
+            <param name="thisObj">The SQL command.</param>
+            <returns>Returns the command text or empty.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.WebRequestDependencyTrackingHelpers">
+            <summary>
+            Client-Server dependency tracking.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.WebRequestDependencyTrackingHelpers.SetUserAndSessionContextForWebRequest(Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry,System.Net.WebRequest)">
+            <summary>
+            Populates WebRequest using the user, session initialized in telemetry item.
+            </summary>
+            <param name="dependencyTelemetry">Dependency telemetry item.</param>
+            <param name="webRequest">Http web request.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.WebRequestDependencyTrackingHelpers.SetCorrelationContextForWebRequest(Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry,System.Net.WebRequest)">
+            <summary>
+            Populates WebRequest using the operation context in telemetry item.
+            </summary>
+            <param name="dependencyTelemetry">Dependency telemetry item.</param>
+            <param name="webRequest">Http web request.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.WebRequestDependencyTrackingHelpers.CreateAndAddCookie(System.Net.WebRequest,System.String,System.String)">
+            <summary>
+            Creates and adds cookie to the web request.
+            </summary>
+            <param name="webRequest">Web request object.</param>
+            <param name="key">Cookie key.</param>
+            <param name="value">Cookie value.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource">
+            <summary>
+            ETW EventSource tracing class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.DependencyTelemetryItemIsNullWarning(System.String)">
+            <summary>
+            Logs the information when the DependencyTelemetry item is null as warning.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.WebRequestIsNullWarning(System.String)">
+            <summary>
+            Logs the information when the HttpWebRequest is null as warning.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.TrackingAnExistingTelemetryItemVerbose(System.String)">
+            <summary>
+            Logs the information when a telemetry item that is already existing in the tables (that is currently being tracked) is tracked again.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.TelemetryToTrackIsNullWarning(System.String)">
+            <summary>
+            Logs the information when the telemetry item to track is null.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords">
+            <summary>
+            Keywords for the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords.UserActionable">
+            <summary>
+            Key word for user actionable events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.DependencyCollectorEventSource.Keywords.RddEventKeywords">
+            <summary>
+            Key word for resource discovery module failures.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkHttpProcessing.OnBeginHttpCallback(System.Int64,System.String)">
+            <summary>
+            On begin callback from Framework event source.
+            </summary>
+            <param name="id">This object.</param>
+            <param name="resourceName">URI of the web request.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkHttpProcessing.OnEndHttpCallback(System.Int64,System.Nullable{System.Boolean},System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            On end callback from Framework event source.
+            </summary>
+            <param name="id">The id.</param>
+            <param name="success">The success to indicate if the dependency call completed successfully or not.</param>
+            <param name="synchronous">The synchronous flag to indicate if the dependency call was synchronous or not.</param>
+            <param name="statusCode">The HTTP status code of the response.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing">
+            <summary>
+            Concrete class with all processing logic to generate RDD data from the calls backs
+            received from Profiler instrumentation for HTTP .   
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,System.String,Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ObjectInstanceBasedOperationHolder,System.Boolean,System.Collections.Generic.ICollection{System.String},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForGetResponse(System.Object)">
+            <summary>
+            On begin callback for GetResponse.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnEndForGetResponse(System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for GetResponse.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>
+            <returns>The resulting return value.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForGetResponse(System.Object,System.Object,System.Object)">
+            <summary>
+            On exception callback for GetResponse callback.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception object.</param>
+            <param name="thisObj">This object.</param>        
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForGetRequestStream(System.Object,System.Object)">
+            <summary>
+            On begin callback for GetRequestStream callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="transportContext">The transport context parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForGetRequestStream(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for GetRequestStream callback.
+            Note: There is no call back required for GetRequestStream except on exception cases.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="transportContext">The transport context parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForBeginGetResponse(System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginGetResponse callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="state">The state parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnEndForEndGetResponse(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end for EndGetResponse callbacks.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="returnValue">The return value.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+            <returns>The return value passed.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForEndGetResponse(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for EndGetResponse callbacks.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBeginForBeginGetRequestStream(System.Object,System.Object,System.Object)">
+            <summary>
+            On begin for BeginGetRequestStream callback.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <param name="callback">The callback parameter.</param>
+            <param name="state">The state parameter.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnExceptionForEndGetRequestStream(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception for EndGetRequestStream callback.
+            Note: There is no call back required for EndGetRequestStream except on exception cases.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="exception">The exception.</param>
+            <param name="thisObj">This object.</param>
+            <param name="asyncResult">The asyncResult parameter.</param>
+            <param name="transportContext">The transportContext parameter.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.GetUrl(System.Net.WebRequest)">
+            <summary>
+            Gets HTTP request url.
+            </summary>
+            <param name="webRequest">Represents web request.</param>
+            <returns>The url if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OverrideCorrelationIdLookupHelper(Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper)">
+            <summary>
+            Simple test hook, that allows for using a stub rather than the implementation that calls the original service.
+            </summary>
+            <param name="correlationIdLookupHelper">Lookup header to use.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnBegin(System.Object,System.Boolean)">
+            <summary>
+            Common helper for all Begin Callbacks.
+            </summary>
+            <param name="thisObj">This object.</param>        
+            <param name="isAsyncCall">Indicates if the method used is async or not.</param>        
+            <returns>Null object as all context is maintained in this class via weak tables.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerHttpProcessing.OnEnd(System.Object,System.Object,System.Object)">
+            <summary>
+            Common helper for all End Callbacks.
+            </summary>        
+            <param name="exception">The exception object if any.</param>
+            <param name="thisObj">This object.</param>                
+            <param name="returnValue">Return value of the function if any.</param>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheBasedOperationHolder.memoryCache">
+            <summary>
+            The memory cache instance used to hold items. MemoryCache.Default is not used as it is shared 
+            across application and can potentially collide with customer application.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheBasedOperationHolder.cacheItemPolicy">
+            <summary>
+            The cache item policy which identifies the expiration time.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch">
+            <summary>
+            Single high precision clock used by operations.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.Watch">
+            <summary>
+            High precision stopwatch.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.HundredNanosecondsPerTick">
+            <summary>
+            Number of 100 nanoseconds per high-precision clock tick.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.StartTime">
+            <summary>
+            The time clock started.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.ElapsedTicks">
+            <summary>
+            Gets number of ticks elapsed on the clock since the start.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.Duration(System.Int64,System.Int64)">
+            <summary>
+            Calculates time between two clock readings.
+            </summary>
+            <param name="fromTicks">Start time in ticks.</param>
+            <param name="toTicks">End time in ticks.</param>
+            <returns>Time between two clock readings.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.OperationWatch.Timestamp(System.Int64)">
+            <summary>
+            Converts time on the operation clock (in ticks) to date and time structure.
+            </summary>
+            <param name="elapsedTicks">Ticks elapsed according to operation watch.</param>
+            <returns>Date time structure representing the date and time that corresponds to the operation clock reading.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ApplicationInsightsUrlFilter.IsApplicationInsightsUrl(System.String)">
+            <summary>
+            Determines whether an URL is application insights URL.
+            </summary>
+            <param name="url">HTTP URL.</param>
+            <returns>True if URL is application insights url, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheBasedOperationHolder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.OnBeginExecuteCallback(System.Int64,System.String,System.String,System.String)">
+            <summary>
+            On begin callback from Framework event source.
+            </summary>
+            <param name="id">Identifier of SQL connection object.</param>
+            <param name="dataSource">Data source name.</param>
+            <param name="database">Database name.</param>
+            <param name="commandText">Command text.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.OnEndExecuteCallback(System.Int64,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            On end callback from Framework event source.
+            </summary>        
+            <param name="id">Identifier of SQL connection object.</param>
+            <param name="success">Indicate whether operation completed successfully.</param>
+            <param name="synchronous">Indicates whether operation was called synchronously or asynchronously.</param>
+            <param name="sqlExceptionNumber">SQL exception number.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.FrameworkSqlProcessing.GetResourceName(System.String,System.String,System.String)">
+            <summary>
+            Gets SQL command resource name.
+            </summary>
+            <param name="dataSource">DataSource name.</param>
+            <param name="database">Database name.</param>
+            <param name="commandText">CommandText name.</param>        
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase">
+            <summary>
+            Base class with all processing logic to generate dependencies from the callbacks received from Profiler instrumentation for SQL.    
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.#ctor(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration,System.String,Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.ObjectInstanceBasedOperationHolder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnBeginForOneParameter(System.Object)">
+            <summary>
+            On begin callback for methods with 1 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnBeginForTwoParameters(System.Object,System.Object)">
+            <summary>
+            On begin callback for methods with 2 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnBeginForThreeParameters(System.Object,System.Object,System.Object)">
+            <summary>
+            On begin callback for methods with 3 parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnBeginForFourParameters(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On begin callback for methods with 4 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndForOneParameter(System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for methods with 1 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndAsyncForOneParameter(System.Object,System.Object,System.Object)">
+            <summary>
+            On end async callback for methods with 1 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndExceptionAsyncForOneParameter(System.Object,System.Object,System.Object)">
+            <summary>
+            On end async callback for methods with 1 parameter. Sends data only if returned task (returnValue) is faulted.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndForTwoParameters(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for methods with 2 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndAsyncForTwoParameters(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end async callback for methods with 2 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndExceptionAsyncForTwoParameters(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end async callback for methods with 2 parameter. Sends data only if returned task (returnValue) is faulted.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndForThreeParameters(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On end callback for methods with 3 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnExceptionForOneParameter(System.Object,System.Object,System.Object)">
+            <summary>
+            On exception callback for methods with 1 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnExceptionForTwoParameters(System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception callback for methods with 2 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnExceptionForThreeParameters(System.Object,System.Object,System.Object,System.Object,System.Object)">
+            <summary>
+            On exception callback for methods with 3 parameter.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.GetDependencyName(System.Object)">
+            <summary>
+            Gets SQL resource name.
+            </summary>
+            <param name="thisObj">The SQL object.</param>
+            <returns>The resource name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.GetDependencyTarget(System.Object)">
+            <summary>
+            Gets SQL resource target name.
+            </summary>
+            <param name="thisObj">The SQL object.</param>
+            <returns>The resource target name if possible otherwise empty string.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.GetCommandName(System.Object)">
+            <summary>
+            Gets SQL resource command text.
+            </summary>
+            <param name="thisObj">The SQL object.</param>
+            <returns>Returns the command text or empty.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnBegin(System.Object)">
+            <summary>
+             Common helper for all Begin Callbacks.
+            </summary>
+            <param name="thisObj">This object.</param>
+            <returns>The context for end callback.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndAsync(System.Object,System.Object)">
+            <summary>
+             Common helper for all EndAsync Callbacks.
+            </summary>
+            <param name="taskObj">Returned task by the async method.</param>
+            <param name="thisObj">This object.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndExceptionAsync(System.Object,System.Object)">
+            <summary>
+             Common helper for all EndAsync Callbacks that should send data only in the case of exception happened.
+            </summary>
+            <param name="taskObj">Returned task by the async method.</param>
+            <param name="thisObj">This object.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEnd(System.Object,System.Object)">
+            <summary>
+             Common helper for all End Callbacks.
+            </summary>
+            <param name="exceptionObj">The exception object if any.</param>
+            <param name="thisObj">This object.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ProfilerSqlProcessingBase.OnEndInternal(System.Object,System.Object)">
+            <summary>
+             Common helper for all End Callbacks.
+            </summary>
+            <param name="exceptionObj">The exception object if any.</param>
+            <param name="thisObj">This object.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule">
+            <summary>
+            Remote dependency monitoring.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.DisableRuntimeInstrumentation">
+            <summary>
+            Gets or sets a value indicating whether to disable runtime instrumentation.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.ExcludeComponentCorrelationHttpHeadersOnDomains">
+            <summary>
+            Gets the component correlation configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.SetComponentCorrelationHttpHeaders">
+            <summary>
+            Gets or sets a value indicating whether the correlation headers would be set on outgoing http requests.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.ProfileQueryEndpoint">
+            <summary>
+            Gets or sets the endpoint that is to be used to get the application insights resource's profile (appId etc.).
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.Dispose">
+            <summary>
+            IDisposable implementation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.Initialize(Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration)">
+            <summary>
+            Initialize method is called after all configuration properties have been loaded from the configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.Dispose(System.Boolean)">
+            <summary>
+            IDisposable implementation.
+            </summary>
+            <param name="disposing">The method has been called directly or indirectly by a user's code.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.InitializeForFrameworkEventSource">
+            <summary>
+            Initialize for framework event source (not supported for Net40).
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule.InitializeForRuntimeInstrumentationOrFramework">
+            <summary>
+            Initialize for runtime instrumentation or framework event source.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.SanitizedHostList">
+            <summary>
+            Sanitized collection on host strings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.SanitizedHostList.Add(System.String)">
+            <summary>
+            We sanitize before adding to the list. We try our best to extract the host name from the passed in item and store that in the collection.
+            </summary>
+            <param name="item">Item to be added.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.DependencyCollector.TelemetryExtensionsForDependencyCollector">
+            <summary>
+            Dependency Telemetry extension methods to associate with request objects and to store in conditional/cache tables to avoid duplicate tracking.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.TelemetryExtensionsForDependencyCollector.AssociateTelemetryWithWebRequest(Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry,System.Net.WebRequest,System.Boolean,System.Boolean)">
+            <summary>
+            Associates telemetry item to a web request to avoid duplicate tracking, and populates cookies with data from initialized telemetry item if setCookies is set to true.
+            When there is an existing telemetry item in the corresponding to the given WEB REQUEST, we return the existing telemetry and associate the same with the WEB REQUEST.
+            </summary>
+            <param name="telemetry">Telemetry object that needs to be associated with the web request.</param>
+            <param name="webRequest">Web request object which we use to populate from the information obtained from the initialized telemetry.</param>
+            <param name="setCookies">Set cookies enables the process of setting the cookies to the web request. By default it is set to false.</param>
+            <param name="setCorrelationContext">Set request headers to correlate dependency telemetry item with the request telemetry item that will process this http request.</param>
+            <returns>Dependency telemetry item with an associated dependency telemetry item.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.TelemetryExtensionsForDependencyCollector.AssociateTelemetryWithSqlRequest(Microsoft.ApplicationInsights.DataContracts.DependencyTelemetry,System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Associates telemetry item to a SQL command object to to avoid duplicate tracking.
+            When there is an existing telemetry item in the corresponding to the given SQL REQUEST, we return the existing telemetry and associate the same with the SQL REQUEST.
+            </summary>
+            <param name="telemetry">Telemetry object that needs to be associated with the web request.</param>
+            <param name="sqlRequest">SQL request object which is used as a key to store in the tables.</param>
+            <returns>Dependency telemetry item with an associated dependency telemetry item.</returns>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Common.CrossComponentCorrelationEventSource">
+            <summary>
+            ETW EventSource tracing class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Common.CrossComponentCorrelationEventSource.Keywords">
+            <summary>
+            Keywords for the <see cref="T:Microsoft.ApplicationInsights.Common.CrossComponentCorrelationEventSource"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.CrossComponentCorrelationEventSource.Keywords.UserActionable">
+            <summary>
+            Key word for user actionable events.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.CrossComponentCorrelationEventSource.Keywords.Diagnostics">
+            <summary>
+            Key word for diagnostics events.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Common.RequestResponseHeaders">
+            <summary>
+            Header names for requests / responses.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.RequestResponseHeaders.RequestContextHeader">
+            <summary>
+            Request-Context header.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.RequestResponseHeaders.RequestContextSourceKey">
+            <summary>
+            Source key in the request context header that is added by an application while making http requests and retrieved by the other application when processing incoming requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.RequestResponseHeaders.RequestContextTargetKey">
+            <summary>
+            Target key in the request context header that is added to the response and retrieved by the calling application when processing incoming responses.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.RequestResponseHeaders.StandardParentIdHeader">
+            <summary>
+            Standard parent Id header.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.RequestResponseHeaders.StandardRootIdHeader">
+            <summary>
+            Standard root id header.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper">
+            <summary>
+            A store for instrumentation App Ids. This makes sure we don't query the public endpoint to find an app Id for the same instrumentation key more than once.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.MAXSIZE">
+            <summary>
+            Max number of app ids to cache.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.#ctor(System.Func{System.String,System.Threading.Tasks.Task{System.String}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper" /> class mostly to be used by the test classes to provide an override for fetching appId logic.
+            </summary>
+            <param name="appIdProviderMethod">The delegate to be called to fetch the appId.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper" /> class.
+            </summary>
+            <param name="endpointAddress">Endpoint that is to be used to fetch appId.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.TryGetXComponentCorrelationId(System.String,System.String@)">
+            <summary>
+            Retrieves the correlation id corresponding to a given instrumentation key.
+            </summary>
+            <param name="instrumentationKey">Instrumentation key string.</param>
+            <param name="correlationId">AppId corresponding to the provided instrumentation key.</param>
+            <returns>true if correlationId was successfully retrieved; false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FetchAppIdFromService(System.String)">
+            <summary>
+            Retrieves the app id given the instrumentation key.
+            </summary>
+            <param name="instrumentationKey">Instrumentation key for which app id is to be retrieved.</param>
+            <returns>App id.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.GetAppIdEndPointUri(System.String)">
+            <summary>
+            Strips off any relative path at the end of the base URI and then appends the known relative path to get the app id uri.
+            </summary>
+            <param name="instrumentationKey">AI resource's instrumentation key.</param>
+            <returns>Computed Uri.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.RegisterFailure(System.String,System.Exception)">
+            <summary>
+            Registers failure for further action in future.
+            </summary>
+            <param name="instrumentationKey">Instrumentation key for which the failure occurred.</param>
+            <param name="ex">Exception indicating failure.</param>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult">
+            <summary>
+            Structure that represents a failed fetch app Id call.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult.#ctor(System.DateTime,System.Net.HttpStatusCode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult" /> class.
+            </summary>
+            <param name="failureTime">Time when the failure occurred.</param>
+            <param name="failureCode">Failure response code.</param>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult.#ctor(System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult" /> class.
+            </summary>
+            <param name="failureTime">Time when the failure occurred.</param>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult.FailureTime">
+            <summary>
+            Gets the time of failure.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult.FailureCode">
+            <summary>
+            Gets the integer value for response code representing the type of failure.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ApplicationInsights.Common.CorrelationIdLookupHelper.FailedResult.ShouldRetry">
+            <summary>
+            Gets a value indicating whether the failure is likely to go away when a retry happens.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ApplicationInsights.Common.WebHeaderCollectionExtensions">
+            <summary>
+            WebHeaderCollection extension methods.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.WebHeaderCollectionExtensions.GetNameValueHeaderValue(System.Collections.Specialized.NameValueCollection,System.String,System.String)">
+            <summary>
+            For the given header collection, for a given header of name-value type, find the value of a particular key.
+            </summary>
+            <param name="headers">Header collection.</param>
+            <param name="headerName">Name of the header in the collection.</param>
+            <param name="keyName">Desired key of the key-value list.</param>
+            <returns>Value against the given parameters.</returns>
+        </member>
+        <member name="M:Microsoft.ApplicationInsights.Common.WebHeaderCollectionExtensions.SetNameValueHeaderValue(System.Collections.Specialized.NameValueCollection,System.String,System.String,System.String)">
+            <summary>
+            For the given header collection, sets the header value based on the name value format.
+            </summary>
+            <param name="headers">Header collection.</param>
+            <param name="headerName">Name of the header that is to contain the name-value pair.</param>
+            <param name="keyName">Name in the name value pair.</param>
+            <param name="value">Value in the name value pair.</param>
+        </member>
+    </members>
+</doc>

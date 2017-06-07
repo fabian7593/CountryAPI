@@ -18,6 +18,6 @@ namespace CountryAPI.Models
         public string currencyName { get; set; }
         public string currencySymbol { get; set; }
         public string flag { get; set; }
-        
+        public string flagPng { get; set; }
     }
 }

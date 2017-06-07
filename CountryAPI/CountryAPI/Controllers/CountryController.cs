@@ -51,6 +51,7 @@ namespace CountryAPI.Controllers
                     countryModel.currencyName = countryResult.currencyName;
                     countryModel.currencySymbol = countryResult.currencySymbol;
                     countryModel.flag = countryResult.flag;
+                    countryModel.flagPng = countryResult.flagpng;
                     countryList.Add(countryModel);
                 }
 
