@@ -3,21 +3,21 @@ namespace CountryAPI.Models
 {
     public class CountryModel
     {
-        public string name { get; set; }
-        public string alpha2Code { get; set; }
-        public string alpha3Code { get; set; }
-        public string nativeName { get; set; }
-        public string region { get; set; }
-        public string subRegion { get; set; }
-        public string latitude { get; set; }
-        public string longitude { get; set; }
-        public long? area { get; set; }
-        public int? numericCode { get; set; }
-        public string nativeLanguage { get; set; }
-        public string currencyCode { get; set; }
-        public string currencyName { get; set; }
-        public string currencySymbol { get; set; }
-        public string flag { get; set; }
-        public string flagPng { get; set; }
+        public string Name { get; set; }
+        public string Alpha2Code { get; set; }
+        public string Alpha3Code { get; set; }
+        public string NativeName { get; set; }
+        public string Region { get; set; }
+        public string SubRegion { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+        public long? Area { get; set; }
+        public int? NumericCode { get; set; }
+        public string NativeLanguage { get; set; }
+        public string CurrencyCode { get; set; }
+        public string CurrencyName { get; set; }
+        public string CurrencySymbol { get; set; }
+        public string Flag { get; set; }
+        public string FlagPng { get; set; }
     }
 }

@@ -2,10 +2,10 @@
 {
     public class MessageResponse
     {
-        public int isSucessfull { get; set; }
-        public string userMessage { get; set; }
-        public string technicalMessage { get; set; }
-        public int? totalCount { get; set; }
-        public object response { get; set; }
+        public bool IsSuccess { get; set; }
+        public string UserMessage { get; set; }
+        public string TechnicalMessage { get; set; }
+        public int? TotalCount { get; set; }
+        public object Response { get; set; }
     }
 }
