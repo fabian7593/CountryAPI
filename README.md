@@ -17,7 +17,7 @@ EndPoint Request: [http://countryapi.gear.host/v1/Country/getCountries](http://c
    - [Specific country name](#specific-country-name)
    - [Countries with region and subRegion specifically](#countries-with-region-and-subregion-specifically)
       - [Region and sub region list](#region-and-sub-region-list)
-   - [Countries with Alpha code 2 or 3](#countries-with-alpha-code-2-or-3)
+   - [Country with Alpha code 2 or 3](#country-with-alpha-code-2-or-3)
    - [Countries with english like native language](#countries-with-english-like-native-language)
    - [Countries with Currency code USD (United States Dollar)](#countries-with-currency-code-usd-united-states-dollar)
    - [Countries with an Area (km2) more than 8000 and less than 12000](#countries-with-an-area-km2-more-than-8000-and-less-than-12000)
