@@ -15,7 +15,7 @@ EndPoint Request: [http://countryapi.gear.host/v1/Country/getCountries](http://c
 - [Request Parameters List](#request-parameters)
 - [Request Examples (with parameters)](#request-examples)
    - [Specific country name](#specific-country-name)
-   - [Countries with region and subRegion](#countries-with-region-and-subregion)
+   - [Countries with a specific region and subRegion](#countries-with-a-specific-region-and-subregion)
       - [Region and sub region list](#region-and-sub-region-list)
    - [Country with Alpha code 2 or 3](#country-with-alpha-code-2-or-3)
    - [Countries with english like native language](#countries-with-english-like-native-language)
