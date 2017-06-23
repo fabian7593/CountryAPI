@@ -121,7 +121,7 @@ You can use any parameter that you need.
 
 [http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica](http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica)
 
-` {"isSucessfull":1,"userMessage":null,"technicalMessage":null,"totalCount":1,"response":[{"name":"Costa Rica","alpha2Code":"CR","alpha3Code":"CRI","nativeName":"Costa Rica","region":"Americas","subRegion":"Central America","latitude":"10","longitude":"-84","area":51100,"numericCode":188,"nativeLanguage":"spa","currencyCode":"CRC","currencyName":"Costa Rican colón","currencySymbol":"₡","flag":"https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/cri.svg"}]} `
+` {"IsSuccess":true,"UserMessage":null,"TechnicalMessage":null,"TotalCount":1,"Response":[{"Name":"Costa Rica","Alpha2Code":"CR","Alpha3Code":"CRI","NativeName":"Costa Rica","Region":"Americas","SubRegion":"Central America","Latitude":"10","Longitude":"-84","Area":51100,"NumericCode":188,"NativeLanguage":"spa","CurrencyCode":"CRC","CurrencyName":"Costa Rican colón","CurrencySymbol":"₡","Flag":"https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlags/cri.svg","FlagPng":"https://api.backendless.com/2F26DFBF-433C-51CC-FF56-830CEA93BF00/473FB5A9-D20E-8D3E-FF01-E93D9D780A00/files/CountryFlagsPng/cri.png"}]} `
 
 PD: the request is similar with **pNativeName**.
 
