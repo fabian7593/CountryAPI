@@ -43,11 +43,11 @@ Country API is a simple web service, made with REST API architecture, that retur
 
 This service return the next data of all the countries in the world:
 
-* **isSucessfull:** Is sucessfull is 1 = True, refers that all works fine, else 0. 
-* **userMessage:** This message is for the users, and only shown with isSucessfull is 0.
-* **technicalMessage:** This message is more technical, and only shown with isSucessfull is 0, please send me a stack trace.
-* **totalCount:** The numbers of country objects that gets in response.
-* **response:** Array of country objects.
+* **isSuccess:** If isSuccess is true, that means that all works fine, otherwise we had an error. 
+* **userMessage:** This message is for the users, and only it is shown when isSuccess is false.
+* **technicalMessage:** This message is technical, and only it is shown when isSuccess is false, please send us a stack trace.
+* **totalCount:** The total countries found in our database.
+* **response:** Array of countries.
    * name
    * alpha2Code
    * alpha3Code
@@ -69,17 +69,17 @@ This service return the next data of all the countries in the world:
 <br>
 
 #### Why use CountryAPI?
-* Not have to create an account in any web page or application.
-* Gets a really simple json object.
-* Gets basic information of any country.
-* Gets the image of all countries.
+* You don't need to create an account in any web page or application.
+* You get a really simple json object.
+* You get a basic information of any country.
+* You get the flag image of the country.
 * You don't need any type of authentication.
 * You don't have limit of request.
-* Has the basic and importants features of RestAPI architecture.
-* Has many params to request the service (included a pagination and limit).
-* It's completelly free and Open source.
-* The service is always up  (24/7).
-* Feel free to use or contribute to the improvement of this.
+* It has the basic and importants features of RestAPI architecture.
+* It has many params to request the service (included a pagination and limit).
+* It's completely free and Open source.
+* The service is always up (24/7).
+* Feel free to use or contribute to improvement it.
 
 
 <br>
@@ -117,7 +117,7 @@ You can use any parameter that you need.
 
 <br><br>
 #### Request Examples
-##### Data of one specific country 
+##### Specific country name 
 
 [http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica](http://countryapi.gear.host/v1/Country/getCountries?pName=Costa%20Rica)
 
@@ -127,7 +127,7 @@ PD: the request is similar with **pNativeName**.
 
 <br>
 
-##### Data of countries with region and subRegion specifically
+##### Countries with a specific region and subRegion
 
 [http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America](http://countryapi.gear.host/v1/Country/getCountries?pRegion=Americas&pSubRegion=Central%20America)
 
@@ -163,19 +163,19 @@ PD: the request is similar with **pNativeName**.
 
 <br>
 
-##### Data of the country with Alpha code 2 or 3
+##### Country with Alpha code 2 or 3
 [http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR](http://countryapi.gear.host/v1/Country/getCountries?pAlpha2Code=CR)
 
-##### Data of the countries with english like native language
+##### Countries with english like native language
 [http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng](http://countryapi.gear.host/v1/Country/getCountries?pNativeLanguage=eng)
 
-##### Data of the countries with Currency code USD (United States Dollar)
+##### Countries with Currency code USD (United States Dollar)
 [http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD](http://countryapi.gear.host/v1/Country/getCountries?pCurrencyCode=USD)
 
-##### Data of the countries with an Area (km2) more than 8000 and less than 12000 
+##### Countries with an Area (km2) more than 8000 and less than 12000 
 [http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000](http://countryapi.gear.host/v1/Country/getCountries?pAreaFrom=8000&pAreaTo=12000)
 
-##### Data of the countries with limit and pagination
+##### Countries with limit and pagination
 [http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=1](http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=1)
 [http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2](http://countryapi.gear.host/v1/Country/getCountries?pLimit=25&pPage=2)
 
@@ -209,6 +209,9 @@ PD: the request is similar with **pNativeName**.
 ## Credits
 **Author**
 [Fabián Rosales - Frosquivel Developer](https://github.com/fabian7593)
+
+**Contributors**
+[List of contributors](https://github.com/fabian7593/CountryAPI/graphs/contributors)
 
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/github-logo.png)](https://github.com/fabian7593)
 [![alt tag](https://raw.githubusercontent.com/fabian7593/CountryAPI/master/Files/imgsReadme/facebook.png)](https://www.facebook.com/fabian.rosales.509)
