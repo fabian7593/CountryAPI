@@ -4,6 +4,9 @@ A Rest Api of country information that you need.
 
 EndPoint Request: [http://countryapi.gear.host/v1/Country/getCountries](http://countryapi.gear.host/v1/Country/getCountries)
 
+**Suggestion: GearHost is a free hosting web apps, and has a limit of request by hour, I recommended download the repository and made your own server, and use this only for tests.
+If you like the repository, my work, and you want that this works ever in the current host or other, please Donate, I will thanks her and the developers comminuty too.**
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c17666154d7a45af892e2b67a4639448)](https://www.codacy.com/app/fabian7593/CountryAPI?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=fabian7593/CountryAPI&amp;utm_campaign=Badge_Grade)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
