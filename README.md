@@ -77,7 +77,7 @@ This service return the next data of all the countries in the world:
 * You get a basic information of any country.
 * You get the flag image of the country.
 * You don't need any type of authentication.
-* You don't have limit of request.
+* You don't have limit of request (Not personally, but yes on server).
 * It has the basic and importants features of RestAPI architecture.
 * It has many params to request the service (included a pagination and limit).
 * It's completely free and Open source.
